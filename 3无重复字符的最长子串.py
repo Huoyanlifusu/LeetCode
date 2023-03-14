@@ -1,10 +1,10 @@
+#滑动窗口
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
         :rtype: int
         """
-        #滑动窗口
         if not s: return 0
         left = 0
 
