@@ -11,9 +11,6 @@ class Solution {
         }
         stack.append(queue[0])
         for i in k..<count {
-            if nums[i-k] == queue[0] {
-                queue.removeFirst()
-            }
             push(&queue, nums[i])
             stack.append(queue[0])
         }
@@ -21,6 +18,9 @@ class Solution {
     }
 
     func push(_ queue: inout [Int], _ num: Int) {
+        if nums[i-k] == queue[0] {
+            queue.removeFirst()
+        }
         while queue.last != nil && queue.last! < num {
             queue.popLast()
         }
