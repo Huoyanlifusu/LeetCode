@@ -11,3 +11,21 @@ class Solution:
         
         digui(root)
         return nums
+#迭代
+
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        nums = []
+        stack = []
+        cur = root
+        while cur or stack:
+            if cur:
+                stack.append(cur)
+                cur = cur.left
+            else:
+                cur = stack.pop()
+                nums.append(cur.val)
+                cur = cur.right
+        
+        
+        return nums
