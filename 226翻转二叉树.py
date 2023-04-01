@@ -15,3 +15,15 @@ class Solution:
                     queue.append(node.left)
                     queue.append(node.right)
         return root
+#递归遍历
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def digui(cur):
+            if not cur:
+                return
+            if cur.left or cur.right:
+                cur.left, cur.right = cur.right, cur.left
+                digui(cur.left)
+                digui(cur.right)
+        if root != None: digui(root)
+        return root
