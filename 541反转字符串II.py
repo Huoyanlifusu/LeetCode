@@ -27,3 +27,24 @@ class Solution:
                 break
 
         return newStr
+
+    
+    #简洁双指针
+    class Solution:
+    def reverseStr(self, s: str, k: int) -> str:
+        lst = list(s)
+        def reverse(lst, start, end):
+            left, right = start, end-1
+            while left < right:
+                lst[left], lst[right] = lst[right], lst[left]
+                left += 1
+                right -= 1
+            return
+        
+        for i in range(0, len(lst), 2*k):
+            if i+k <= len(lst):
+                reverse(lst, i, i+k)
+            else:
+                reverse(lst, i, len(lst))
+            
+        return "".join(lst)
