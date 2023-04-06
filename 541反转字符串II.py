@@ -30,7 +30,7 @@ class Solution:
 
     
     #简洁双指针
-    class Solution:
+class Solution:
     def reverseStr(self, s: str, k: int) -> str:
         lst = list(s)
         def reverse(lst, start, end):
