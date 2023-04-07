@@ -29,3 +29,6 @@ class Solution:
                 max_price = backsearch(piles, i, k-1, max_price)
                 insertstacktop(piles[i], num)
                 path.pop()
+            return max_price
+
+        return backsearch(piles, 0, k, 0)
