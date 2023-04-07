@@ -20,3 +20,17 @@ class Solution:
             return False
         else:
             return True
+
+#动态规划 完全背包 更优
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
+        dp = [False for _ in range(len(s)+1)]
+        dp[0] = True
+
+        for j in range(len(s)+1):
+            for i in range(j):
+                if s[i:j] in wordDict and dp[i] == True:
+                    dp[j] = True
+        
+        return dp[-1]
