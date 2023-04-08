@@ -25,3 +25,19 @@ class Solution(object):
             Set.add(s[i])
         return max_len
         
+#简化版本
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        
+        ans = 0
+        tmp = ""
+        left = 0
+
+        for right, char in enumerate(s):
+            while char in tmp:
+                tmp = tmp[1:]
+                left += 1
+            tmp += char
+            ans = max(ans, right-left+1)
+        
+        return ans
