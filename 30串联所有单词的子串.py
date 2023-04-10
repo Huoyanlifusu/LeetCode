@@ -36,3 +36,26 @@ class Solution(object):
                     if cur_cnt == words:
                         index.append(left)
         return index
+#暴力算法 简化版本
+class Solution:
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        n = len(words)
+        m = len(words[0])
+        k = len(s)
+        refdic = collections.Counter(words)
+        if k < m*n:
+            return []
+        result = []
+        for i in range(k-m*n+1):
+            tmps = s[i:i+n*m]
+            dic = {}
+            for j in range(n):
+                tmp = tmps[j*m:j*m+m]
+                if tmp not in dic:
+                    dic[tmp] = 1
+                else:
+                    dic[tmp] += 1
+            if dic == refdic:
+                result.append(i)
+        
+        return result
