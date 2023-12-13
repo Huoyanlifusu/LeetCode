@@ -1,0 +1,19 @@
+# 动态规划
+
+class Solution(object):
+    def maxLength(self, arr):
+        """
+        :type arr: List[str]
+        :rtype: int
+        """
+        def validStr(s):
+            return len(set(s)) == len(s)
+
+        dp = []
+        for s in arr:
+            if not validStr(s): continue
+            for s_ in list(dp):
+                if validStr(s_+s): dp.append(s_+s)
+            dp.append(s)
+        
+        return len(max(dp, key=len)) if dp else 0
